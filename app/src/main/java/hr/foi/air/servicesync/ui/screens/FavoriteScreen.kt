@@ -23,7 +23,8 @@ import hr.foi.air.servicesync.ui.contents.FavoriteContent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FavoriteScreen(modifier: Modifier = Modifier) {
+fun FavoriteScreen(modifier: Modifier = Modifier)
+{
     Scaffold(
         topBar = {
             TopAppBar(
@@ -37,6 +38,5 @@ fun FavoriteScreen(modifier: Modifier = Modifier) {
     Text(
         text = "",
         color = isDark(primaryDark, primaryLight
-    )
-    )
+    ))
 }

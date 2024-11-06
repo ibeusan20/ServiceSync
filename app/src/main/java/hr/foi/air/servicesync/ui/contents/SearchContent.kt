@@ -32,7 +32,8 @@ import hr.foi.air.servicesync.ui.items.ProvidedServicesListItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchContent(modifier: Modifier = Modifier) {
+fun SearchContent(modifier: Modifier = Modifier)
+{
     Scaffold(
         modifier = modifier.fillMaxSize(),
         contentWindowInsets = WindowInsets.navigationBars,

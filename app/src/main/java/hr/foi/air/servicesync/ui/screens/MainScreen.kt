@@ -1,7 +1,10 @@
 package hr.foi.air.servicesync.ui.screens
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -32,8 +35,8 @@ import hr.foi.air.servicesync.ui.components.isDark
 import hr.foi.air.servicesync.ui.items.NavItem
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
-
+fun MainScreen(modifier: Modifier = Modifier)
+{
     val navItemList = navItems()
 
     var selectedIndex by remember {
@@ -44,7 +47,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
         containerColor = if (isSystemInDarkTheme()) surfaceContainerDark else surfaceContainerLight,
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            NavigationBar() {
+            NavigationBar {
                 navItemList.forEachIndexed { index, navItem ->
                     NavigationBarItem(
                         selected = selectedIndex == index,
@@ -53,62 +56,58 @@ fun MainScreen(modifier: Modifier = Modifier) {
                         },
                         icon = {
                             BadgedBox(badge = {
-                                if (navItem.badgeCount > 0)
-                                {
-                                    Badge(containerColor = isDark(errorDark, errorLight))
-                                    {
+                                if (navItem.badgeCount > 0) {
+                                    Badge(containerColor = isDark(errorDark, errorLight)) {
                                         Text(text = navItem.badgeCount.toString(), color = Color.White)
                                     }
-
                                 }
                             }) {
                                 Icon(
                                     imageVector = navItem.icon,
-                                    contentDescription = "${navItem.icon}"
+                                    contentDescription = "${navItem.icon}",
                                 )
                             }
                         },
                         label = {
                             Text(text = navItem.label)
-                        }
+                        },
                     )
                 }
             }
-        }
+        },
     ) { innerPadding ->
-        ContentScreen(modifier = Modifier.padding(innerPadding), selectedIndex)
+        ContentScreen(modifier = Modifier.padding(WindowInsets.navigationBars.asPaddingValues()), selectedIndex)
     }
 }
 
 @Composable
 private fun navItems(): List<NavItem> {
-    val navItemList = listOf(
-        NavItem(
-            "Pretraži",
-            Icons.Default.Search,
-            isDark(primaryDarkHighContrast, primaryLightHighContrast),
-            badgeCount = 0
-        ),
-        NavItem(
-            "Kalendar",
-            Icons.Default.DateRange,
-            isDark(primaryDarkHighContrast, primaryLightHighContrast),
-            badgeCount = 0
-        ),
-        NavItem(
-            "Favoriti",
-            Icons.Default.FavoriteBorder,
-            isDark(primaryDarkHighContrast, primaryLightHighContrast),
-            badgeCount = 0
-        ),
-        NavItem(
-            "Profil",
-            Icons.Default.AccountCircle,
-            isDark(primaryDarkHighContrast, primaryLightHighContrast),
-            badgeCount = 5
-        ),
-    )
+    val navItemList =
+        listOf(
+            NavItem(
+                "Pretraži",
+                Icons.Default.Search,
+                isDark(primaryDarkHighContrast, primaryLightHighContrast),
+                badgeCount = 0,
+            ),
+            NavItem(
+                "Kalendar",
+                Icons.Default.DateRange,
+                isDark(primaryDarkHighContrast, primaryLightHighContrast),
+                badgeCount = 0,
+            ),
+            NavItem(
+                "Favoriti",
+                Icons.Default.FavoriteBorder,
+                isDark(primaryDarkHighContrast, primaryLightHighContrast),
+                badgeCount = 0,
+            ),
+            NavItem(
+                "Profil",
+                Icons.Default.AccountCircle,
+                isDark(primaryDarkHighContrast, primaryLightHighContrast),
+                badgeCount = 5,
+            ),
+        )
     return navItemList
 }
-
-
