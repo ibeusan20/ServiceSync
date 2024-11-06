@@ -81,8 +81,11 @@ fun CompanyDetailsContent(id: Number) {
 
     }
 }
+/*
 @Preview
 @Composable
 fun PreviewCompanyDetails(){
     CompanyDetailsContent(2)
 }
+
+ */
