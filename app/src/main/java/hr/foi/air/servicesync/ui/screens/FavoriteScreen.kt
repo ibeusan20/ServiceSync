@@ -27,21 +27,7 @@ import hr.foi.air.servicesync.ui.contents.FavoriteContent
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FavoriteScreen(modifier: Modifier = Modifier) {
-    /*Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = "Favoriti", style = MaterialTheme.typography.titleLarge) },
-            )
-        },
-        modifier = modifier
-    ) { innerPadding ->
-        FavoriteContent(modifier = Modifier.padding(innerPadding))
-    }
-    Text(
-        text = "",
-        color = isDark(primaryDark, primaryLight
-    )
-    )*/
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
