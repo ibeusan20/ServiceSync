@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -69,6 +69,12 @@ fun CompanyCard(
         }
     }
     Card(
+        colors = CardColors(
+            containerColor = isDark(surfaceContainerHighestDark, surfaceContainerHighestLight),
+            contentColor = isDark(onSurfaceDark, onSurfaceLight),
+            disabledContainerColor = Color.Transparent,
+            disabledContentColor = Color.Transparent
+        ),
         modifier = Modifier
             .fillMaxSize()
             .padding(top = 0.dp, bottom = 16.dp, start = 8.dp, end = 8.dp)
